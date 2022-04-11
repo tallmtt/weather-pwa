@@ -26,19 +26,18 @@ Using lat/long -> From: https://api.weather.gov/points/28.5781,-81.373
 	- Get Hourly weather and icon
 		- Time/Temp/ShortForecast/Icon
 - Get City/State
-- Get Radarstation
+- Get Radarstation - for: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
 
 ## Todo
 
-- [ ] Write index page
-  - Use json link hardcoded first (or a variable)
+- [X] Write index page
 - [ ] Write Hourly page
   - Use json link hardcoded first (or a variable)
 - [ ] Write Daily page
   - Use json link hardcoded first (or a variable)
 - [ ] Write getweather code
-  - [ ] Write geolocation code
-  - [ ] Write get links code - parse from lat,lng
+  - [X] Write geolocation code
+  - [X] Write get links code - parse from lat,lng
   - [ ] Write parse json code hourly
   - [ ] Write parse json code daily
 - [ ] Change icons

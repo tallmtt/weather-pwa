@@ -35,6 +35,17 @@
     <script defer src="main.js"></script>
   </head>
   <body onload="getWeather()">
-    Weather PWA - It Works!
+    <h1>Weather</h1>
+	<p>Weather from weather.gov</p>
+	
+	<div>
+		<p id="testing"></p>
+		<h2 id="location"></h2>
+		<p id="currentweather"></p>
+	</div>
+	<div>
+		<button type="button" onClick="getForecastHourly()">Hourly Forecast</button>
+		<button type="button" onClick="getForecastDaily()">Daily Forecast</button> <!--<hr>-->
+	</div>
   </body>
 </html>

@@ -17,15 +17,15 @@ self.addEventListener("install", (evt) => {
 
 // (C) CACHE STRATEGY
 self.addEventListener("fetch", (evt) => {
-  // (C1) LOAD FROM CACHE FIRST, FALLBACK TO NETWORK IF NOT FOUND
+   // (C1) LOAD FROM CACHE FIRST, FALLBACK TO NETWORK IF NOT FOUND
   event.respondWith(
     caches.match(evt.request)
     .then((res) => { return res || fetch(evt.request); })
   );
 
-  /* (C2) LOAD WITH NETWORK FIRST, FALLBACK TO CACHE IF OFFLINE
+/*  // (C2) LOAD WITH NETWORK FIRST, FALLBACK TO CACHE IF OFFLINE
   evt.respondWith(
     fetch(evt.request)
     .catch(() => { return caches.match(evt.request); })
-  );*/
-});
+  );
+}); */
