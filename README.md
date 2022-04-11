@@ -16,7 +16,6 @@ For development/testing:
   - Link to:
     - Hourly forecast -> store link in localstorage
     - Daily forecast -> store link in localstorage
-  - 
 
 Using lat/long -> From: https://api.weather.gov/points/28.5781,-81.373
 - Get forecast links:
@@ -48,6 +47,7 @@ Using lat/long -> From: https://api.weather.gov/points/28.5781,-81.373
 ## Resources
 
 - https://usefulangle.com/post/180/javascript-get-geolocation
+- https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_geo_coordinates
 - https://www.w3schools.com/Js/js_json_parse.asp
 - https://www.w3schools.com/Js/js_json_arrays.asp
 - https://www.w3schools.com/jsref/jsref_obj_date.asp
