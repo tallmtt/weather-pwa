@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- (A) TITLE + CHARSET + DESCRIPTION -->
+    <title>Weather</title>
+    <meta charset="utf-8">
+    <meta name="description" content="a Weather PWA">
+
+    <!-- (B) VIEWPORT (ALLOW ZOOM IN, NOT OUT) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+
+    <!-- (C) WEB APP MANIFEST -->
+    <!-- https://web.dev/add-manifest/ -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- (D) GOOD OLD FAVICON -->
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- (E) ANDROID/CHROME -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="white">
+
+    <!-- (F) IOS APP ICON + MOBILE SAFARI -->
+    <link rel="apple-touch-icon" href="icon-512.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hello World">
+
+    <!-- (G) WINDOWS -->
+    <meta name="msapplication-TileImage" content="icon-512.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- (H) STYLESHEET + JAVASCRIPT -->
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+  </head>
+  <body onload="getWeather()">
+    Weather PWA - It Works!
+  </body>
+</html>

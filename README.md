@@ -2,6 +2,10 @@
 
 Update of my previous Android Weather app to pwa for flexibility, space saving, and cross operating system availability.
 
+
+For development/testing: 
+- $ python3 -m http.server
+
 ## Plan
 
 1) On page load (with loading gif):
@@ -24,6 +28,22 @@ Using lat/long -> From: https://api.weather.gov/points/28.5781,-81.373
 		- Time/Temp/ShortForecast/Icon
 - Get City/State
 - Get Radarstation
+
+## Todo
+
+- [ ] Write index page
+  - Use json link hardcoded first (or a variable)
+- [ ] Write Hourly page
+  - Use json link hardcoded first (or a variable)
+- [ ] Write Daily page
+  - Use json link hardcoded first (or a variable)
+- [ ] Write getweather code
+  - [ ] Write geolocation code
+  - [ ] Write get links code - parse from lat,lng
+  - [ ] Write parse json code hourly
+  - [ ] Write parse json code daily
+- [ ] Change icons
+
 
 ## Resources
 
