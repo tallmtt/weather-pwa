@@ -1,4 +1,4 @@
-# weather-pwa
+# Weather: a Progressive Web Application
 
 Update of my previous Android Weather app to pwa for flexibility, space saving, and cross operating system availability.
 
