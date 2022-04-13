@@ -3,11 +3,14 @@ if ("serviceWorker" in navigator) {
 }
 
 var x = document.getElementById("testing");
+//var currentweather = [] // Global variable: Current weather variable
+//var lweather = [] // Global variable: Weather location
 
 function getWeather() {
-	//alert("Starting up...");
 	getLocation();
-    currentweather();
+//	console.log(locationweather[0]);
+//	console.log(zzz);
+//	document.getElementById("currentweather").innerHTML = currentweather();
 }
 
 function getLocation() {
@@ -23,16 +26,21 @@ function weatherdata(position) {
   .then(response => response.json())
   .then(data => {
 	  console.log(data);
-	  var hourly = data.properties.forecastHourly; //Hourly data url
-	  var daily = data.properties.forecast; //Daily data url
-	  var radar = data.properties.radarStation; // Radar station for radar gif
+	  var hourly = data.properties.forecastHourly; // Local variable: Hourly data url
+	  var daily = data.properties.forecast; // Local variable: Daily data url
+	  var radar = data.properties.radarStation; // Local variable: Radar station for radar gif
 	  document.getElementById("location").innerHTML = data.properties.relativeLocation.properties.city + ', ' + data.properties.relativeLocation.properties.state
-	  //alert(hourly);
+//	  let city = data.properties.relativeLocation.properties.city
+//	  let state = data.properties.relativeLocation.properties.state
+//	  let lweather = [city,state];
+
 	  //LocalStorage becasue I don't understand how variable scope works in javascript
 	  localStorage.weatherHourly = hourly;
 	  localStorage.weatherDaily = daily;
 	  localStorage.weatherRadar = radar;
   });
+	currentweather();
+//	document.getElementById("currentweather").innerHTML = currentweather();  // Too slow
 }
 
 function currentweather() {
@@ -40,16 +48,24 @@ function currentweather() {
 	.then(response => response.json())
 	.then(data => {
 		console.log(data);
+//		document.getElementById("currentweather").innerHTML = 
+//		'<img src="' + data['properties']['periods']['0']['icon'] + '">' + 
+//		'<br>' + data['properties']['periods']['0']['shortForecast'] + 
+//		'<br>' + data['properties']['periods']['0']['temperature'] + ' F' +
+//		'<br>' + data['properties']['periods']['0']['windSpeed'] + ' ' + data['properties']['periods']['0']['windDirection']
+		icon = data['properties']['periods']['0']['icon'];
+		sforecast = data['properties']['periods']['0']['shortForecast'];
+		temp = data['properties']['periods']['0']['temperature'];
+		windsp = data['properties']['periods']['0']['windSpeed'];
+		winddir = data['properties']['periods']['0']['windDirection'];
+		cweather = [icon,sforecast,temp,windsp,winddir];
+
 		document.getElementById("currentweather").innerHTML = 
-		'<img src="' + data['properties']['periods']['0']['icon'] + '">' + 
-		'<br>' + data['properties']['periods']['0']['shortForecast'] + 
-		'<br>' + data['properties']['periods']['0']['temperature'] + ' F' +
-		'<br>' + data['properties']['periods']['0']['windSpeed'] + ' ' + data['properties']['periods']['0']['windDirection']
+			'<img src="' + icon + '">' + '<br>' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
+//		var cweather = '<img src="' + icon + '">' + '<br>' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
+//		console.log(cweather);
+//		return cweather;
 	});
-	
-	/////////////////////////////
-	// Once loaded - hide the loading gif...
-	/////////////////////////////
 }
 
 function getForecastHourly() {
@@ -58,4 +74,8 @@ function getForecastHourly() {
 
 function getForecastDaily() {
 	alert('Daily');
+}
+
+function getRadar() {
+	alert('Radar');
 }

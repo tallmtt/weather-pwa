@@ -14,20 +14,20 @@
     <link rel="manifest" href="manifest.json">
 
     <!-- (D) GOOD OLD FAVICON -->
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="images/favicon.png" type="image/png">
 
     <!-- (E) ANDROID/CHROME -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="white">
 
     <!-- (F) IOS APP ICON + MOBILE SAFARI -->
-    <link rel="apple-touch-icon" href="icon-512.png">
+    <link rel="apple-touch-icon" href="images/icon-512.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Hello World">
+    <meta name="apple-mobile-web-app-title" content="Weather">
 
     <!-- (G) WINDOWS -->
-    <meta name="msapplication-TileImage" content="icon-512.png">
+    <meta name="msapplication-TileImage" content="images/icon-512.png">
     <meta name="msapplication-TileColor" content="#ffffff">
 
     <!-- (H) STYLESHEET + JAVASCRIPT -->
@@ -37,15 +37,18 @@
   <body onload="getWeather()">
     <h1>Weather</h1>
 	<p>Weather from weather.gov</p>
+
+	<div>
+		<button type="button" onClick="getForecastHourly()">Hourly Forecast</button>
+		<button type="button" onClick="getRadar()">Radar</button>
+		<button type="button" onClick="getForecastDaily()">Daily Forecast</button> <hr>
+	</div>
 	
 	<div>
 		<p id="testing"></p>
 		<h2 id="location"></h2>
 		<p id="currentweather"></p>
 	</div>
-	<div>
-		<button type="button" onClick="getForecastHourly()">Hourly Forecast</button>
-		<button type="button" onClick="getForecastDaily()">Daily Forecast</button> <!--<hr>-->
-	</div>
+
   </body>
 </html>
