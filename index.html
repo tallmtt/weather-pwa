@@ -33,6 +33,8 @@
     <!-- (H) STYLESHEET + JAVASCRIPT -->
     <link rel="stylesheet" href="style.css">
     <script defer src="main.js"></script>
+	<script src="pulltorefresh.js"></script>
+	
   </head>
   <body onload="getWeather()">
     <h1>Weather</h1>
@@ -44,11 +46,16 @@
 		<button type="button" onClick="getForecastDaily()">Daily Forecast</button> <hr>
 	</div>
 	
-	<div>
-		<p id="testing"></p>
+	<div id='supported'></div>
+	
+	<!-- Loading animation -->
+	<div class="lds-ripple"><div></div><div></div></div>
+	
+	<!-- Information -->	
+	<div class="mainFront">
 		<h2 id="location"></h2>
 		<p id="currentweather"></p>
 	</div>
-
+	
   </body>
 </html>

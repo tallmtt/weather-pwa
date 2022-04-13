@@ -30,7 +30,7 @@ Using lat/long -> From: https://api.weather.gov/points/28.5781,-81.373
 
 ## Todo
 
-- [X] Write index page
+- [ ] Write Radar page
 - [ ] Write Hourly page
   - Use json link hardcoded first (or a variable)
 - [ ] Write Daily page
@@ -41,7 +41,9 @@ Using lat/long -> From: https://api.weather.gov/points/28.5781,-81.373
   - [ ] Write parse json code hourly
   - [ ] Write parse json code daily
 - [ ] Change icons
-
+- [X] Set loading icon
+- [X] Pull to refresh
+- [X] Write index page
 
 ## Resources
 

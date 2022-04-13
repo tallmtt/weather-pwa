@@ -2,9 +2,7 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js");
 }
 
-var x = document.getElementById("testing");
-//var currentweather = [] // Global variable: Current weather variable
-//var lweather = [] // Global variable: Weather location
+var supported = document.getElementById("supported");
 
 function getWeather() {
 	getLocation();
@@ -17,7 +15,7 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(weatherdata);
   } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    supported.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
@@ -40,6 +38,7 @@ function weatherdata(position) {
 	  localStorage.weatherRadar = radar;
   });
 	currentweather();
+
 //	document.getElementById("currentweather").innerHTML = currentweather();  // Too slow
 }
 
@@ -61,11 +60,13 @@ function currentweather() {
 		cweather = [icon,sforecast,temp,windsp,winddir];
 
 		document.getElementById("currentweather").innerHTML = 
-			'<img src="' + icon + '">' + '<br>' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
+			'<img src="' + icon + '">' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
+			
 //		var cweather = '<img src="' + icon + '">' + '<br>' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
 //		console.log(cweather);
 //		return cweather;
 	});
+	hideloadinggif();
 }
 
 function getForecastHourly() {
@@ -78,4 +79,19 @@ function getForecastDaily() {
 
 function getRadar() {
 	alert('Radar');
+	// Hide this class: mainFront
+	// Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
 }
+
+function hideloadinggif() {
+	document.querySelector('.lds-ripple').style.display = 'none';
+	//alert('hiding');
+}
+
+// For pull-to-refresh
+const ptr = PullToRefresh.init({
+  mainElement: 'body',
+  onRefresh() {
+    window.location.reload();
+  }
+});
