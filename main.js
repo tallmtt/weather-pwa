@@ -5,6 +5,9 @@ if ("serviceWorker" in navigator) {
 var supported = document.getElementById("supported");
 
 function getWeather() {
+	document.querySelector('.hourlyFront').style.display = 'none'
+	document.querySelector('.radarFront').style.display = 'none'
+	document.querySelector('.dailyFront').style.display = 'none'
 	getLocation();
 //	console.log(locationweather[0]);
 //	console.log(zzz);
@@ -78,9 +81,21 @@ function getForecastDaily() {
 }
 
 function getRadar() {
-	alert('Radar');
-	// Hide this class: mainFront
+	document.querySelector('.radarFront').style.display = 'block';
+	radar = localStorage.weatherRadar
+//	alert('Radar: ' + radar);
+	document.querySelector('.mainFront').style.display = 'none'; 	// Hide class: mainFront
 	// Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
+	document.getElementById("radarweather").innerHTML = 
+			'<img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar">';
+	// Todo: Add back button
+}
+
+function returnFront() {
+	document.querySelector('.radarFront').style.display = 'none';
+//	document.querySelector('.hourlyFront').style.display = 'none';
+//	document.querySelector('.dailyFront').style.display = 'none';
+	document.querySelector('.mainFront').style.display = 'block';
 }
 
 function hideloadinggif() {

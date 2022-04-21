@@ -12,6 +12,20 @@ img {
 	margin-right: 1em;
 }
 
+.imgradar {
+	border-radius: 2%;
+	display: block;
+	margin: 0 auto;
+
+}
+
+#radarweather {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-height: 80%;
+}
+
 #currentweather {
 	display: flex;
 	justify-content: center;
