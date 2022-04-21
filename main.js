@@ -50,11 +50,6 @@ function currentweather() {
 	.then(response => response.json())
 	.then(data => {
 		console.log(data);
-//		document.getElementById("currentweather").innerHTML = 
-//		'<img src="' + data['properties']['periods']['0']['icon'] + '">' + 
-//		'<br>' + data['properties']['periods']['0']['shortForecast'] + 
-//		'<br>' + data['properties']['periods']['0']['temperature'] + ' F' +
-//		'<br>' + data['properties']['periods']['0']['windSpeed'] + ' ' + data['properties']['periods']['0']['windDirection']
 		icon = data['properties']['periods']['0']['icon'];
 		sforecast = data['properties']['periods']['0']['shortForecast'];
 		temp = data['properties']['periods']['0']['temperature'];
@@ -65,15 +60,28 @@ function currentweather() {
 		document.getElementById("currentweather").innerHTML = 
 			'<img src="' + icon + '">' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
 			
-//		var cweather = '<img src="' + icon + '">' + '<br>' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
-//		console.log(cweather);
-//		return cweather;
 	});
 	hideloadinggif();
 }
 
 function getForecastHourly() {
 	alert('Hourly');
+	fetch(localStorage.weatherHourly)
+	.then(response => response.json())
+	.then(data => {
+		console.log(data);
+
+// Section to parse data into each section
+//		for (var i=0, n=json.storeList.state.length; i<n; i++) {
+//			var state = json.storeList.state[i];
+//			console.log(state.stateName); //Maine, then Connecticut
+//			for (var j=0, k=state.store.length; j<k; j++) {
+//				var store = state.store[j]; //the object containing store name, id & URL
+//				console.log(store.storeID);
+//			}
+//		}
+		
+	});
 }
 
 function getForecastDaily() {

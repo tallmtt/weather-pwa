@@ -16,7 +16,7 @@ img {
 	border-radius: 2%;
 	display: block;
 	margin: 0 auto;
-
+	max-width: 90%;
 }
 
 #radarweather {
