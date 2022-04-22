@@ -65,21 +65,25 @@ function currentweather() {
 }
 
 function getForecastHourly() {
-	alert('Hourly');
+	let now = new Date();
+	alert( now );
+//	alert('Hourly');
 	fetch(localStorage.weatherHourly)
 	.then(response => response.json())
 	.then(data => {
 		console.log(data);
+//		var weatherperiod = data.properties.periods['0'].shortForecast;
+//		console.log(weatherperiod); //Maine, then Connecticut
 
 // Section to parse data into each section
-//		for (var i=0, n=5; i<n; i++) {  // do n=72
-//			var period = data.properties.periods.['0_99'].[i];
-//			console.log(period.startTime); //Maine, then Connecticut
+		for (var i=0, n=5; i<n; i++) {  // do n=72
+			var weatherperiod = data.properties.periods[i].startTime;
+			console.log(weatherperiod); //Maine, then Connecticut
 //			for (var j=0, k=state.store.length; j<k; j++) {
 //				var store = state.store[j]; //the object containing store name, id & URL
 //				console.log(store.storeID);
 //			}
-//		}
+		}
 		
 	});
 }

@@ -63,6 +63,8 @@ for (var i=0, n=json.storeList.state.length; i<n; i++) {
     }
 }
 
+https://javascript.info/date
+https://www.w3schools.com/jsref/jsref_tolocaletimestring.asp
 
 #### Parsing JSON with number as a key
 From: https://stackoverflow.com/questions/23552708/how-to-parse-json-with-number-as-a-key
