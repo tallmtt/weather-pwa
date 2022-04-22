@@ -37,13 +37,13 @@
 	
   </head>
   <body onload="getWeather()">
-    <h1>Weather</h1>
+    <h1 onClick="returnFront()">Weather</h1>
 	<p>Weather from weather.gov</p>
 
 	<div>
-		<button type="button" onClick="getForecastHourly()">Hourly Forecast</button>
-		<button type="button" onClick="getRadar()">Radar</button>
-		<button type="button" onClick="getForecastDaily()">Daily Forecast</button> <hr>
+		<button type="button" class='hourlybutton' onClick="getForecastHourly()">Hourly Forecast</button>
+		<button type="button" class='radarbutton' onClick="getRadar()">Radar</button>
+		<button type="button" class='dailybutton' onClick="getForecastDaily()">Daily Forecast</button> <hr>
 	</div>
 	
 	<div id='supported'></div>
@@ -60,12 +60,13 @@
 	<!-- Hourly Weather -->	
 	<div class="hourlyFront">
 		<p id="hourlyweather"></p>
+<!-- 		<button type="button" onClick="returnFront()">Back</button> -->
 	</div>
 	
 	<!-- Radar -->	
 	<div class="radarFront">
 		<p id="radarweather"></p>
-		<button type="button" onClick="returnFront()">Back</button>
+<!-- 		<button type="button" onClick="returnFront()">Back</button> -->
 	</div>
 
 	<!-- Daily Weather -->	
