@@ -35,7 +35,7 @@ For development/testing:
   - [X] Write get links code - parse from lat,lng
   - [ ] Write Hourly page: parse json code hourly
   - [ ] Write Daily page: parse json code daily
-- [ ] Change icons
+- [X] Change icons
 - [X] Write Radar page
 - [X] Set loading icon
 - [X] Pull to refresh
