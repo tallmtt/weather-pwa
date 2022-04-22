@@ -34,6 +34,7 @@ For development/testing:
   - [X] Write geolocation code
   - [X] Write get links code - parse from lat,lng
   - [ ] Write Hourly page: parse json code hourly
+    - [ ] Need to fix css to center better
   - [ ] Write Daily page: parse json code daily
 - [X] Change icons
 - [X] Write Radar page
