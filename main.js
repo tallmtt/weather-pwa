@@ -5,10 +5,10 @@ if ("serviceWorker" in navigator) {
 var supported = document.getElementById("isnotsupported");
 
 function getWeather() {
-	document.querySelector('.hourlyFront').style.display = 'none'
-	document.querySelector('.radarFront').style.display = 'none'
-	document.querySelector('.dailyFront').style.display = 'none'
-	getLocation();
+    document.querySelector('.hourlyFront').style.display = 'none'
+    document.querySelector('.radarFront').style.display = 'none'
+    document.querySelector('.dailyFront').style.display = 'none'
+    getLocation();
 }
 
 function getLocation() {
@@ -23,20 +23,19 @@ function weatherdata(position) {
   fetch('https://api.weather.gov/points/' + position.coords.latitude + ',' + position.coords.longitude)
   .then(response => response.json())
   .then(data => {
-// 	  console.log(data);
-	  var hourly = data.properties.forecastHourly; // Local variable: Hourly data url
-	  var daily = data.properties.forecast; // Local variable: Daily data url
-	  var radar = data.properties.radarStation; // Local variable: Radar station for radar gif
-	  document.getElementById("location").innerHTML = data.properties.relativeLocation.properties.city + ', ' + data.properties.relativeLocation.properties.state
+//     console.log(data);
+    var hourly = data.properties.forecastHourly; // Local variable: Hourly data url
+    var daily = data.properties.forecast; // Local variable: Daily data url
+    var radar = data.properties.radarStation; // Local variable: Radar station for radar gif
+    document.getElementById("location").innerHTML = data.properties.relativeLocation.properties.city + ', ' + data.properties.relativeLocation.properties.state
 
-	  //LocalStorage becasue I don't understand how variable scope works in javascript
-	  localStorage.weatherHourly = hourly;
-	  localStorage.weatherDaily = daily;
-	  localStorage.weatherRadar = radar;
-  });
-	currentweather();
+    //LocalStorage because I don't understand how variable scope works in javascript
+    localStorage.weatherHourly = hourly;
+    localStorage.weatherDaily = daily;
+    localStorage.weatherRadar = radar;
+});
+    currentweather();
 
-//	document.getElementById("currentweather").innerHTML = currentweather();  // Too slow
 }
 
 function currentweather() {
@@ -53,20 +52,18 @@ function currentweather() {
         temp = data['properties']['periods']['0']['temperature'];
         windsp = data['properties']['periods']['0']['windSpeed'];
         winddir = data['properties']['periods']['0']['windDirection'];
-//         cweather = [icon,sforecast,temp,windsp,winddir];
+        cweather = '<img src="' + icon + '">' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
 
-        document.getElementById("currentweather").innerHTML = 
-            '<img src="' + icon + '">' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
+        document.getElementById("currentweather").innerHTML = cweather;
 
-//             Get all data for hourly weather on 1 api pull
+//             Get all data for hourly weather on first api pull
             var hourlist = '';
             for (var i=0, n=72; i<n; i++) {  // do n=72
                 var weatherperiod = data.properties.periods[i];
                 icon = weatherperiod.icon;
-                time = new Date(weatherperiod.startTime);
-                hr = time.getHours(time);
-//                 min = time.getMinutes(time);
-//                 time = date.parse(time);
+                time = new Date(weatherperiod.startTime);   // Parse datetime string to get hours
+                hr = time.getHours(time);                   // Parse datetime string to get hours
+//                 min = time.getMinutes(time);  // NOT needed - just add ':00'
                 sforecast = weatherperiod.shortForecast;
                 temp = weatherperiod.temperature;
                 windsp = weatherperiod.windSpeed;
@@ -85,10 +82,6 @@ function getForecastHourly() {
     document.querySelector('.mainFront').style.display = 'none';    // Hide class: mainFront
     document.querySelector('.dailyFront').style.display = 'none';    // Hide daily
     document.querySelector('.radarFront').style.display = 'none';    // Hide radar
-
-// 	let now = new Date();
-// 	alert( now );
-//	alert('Hourly');
 
 // // Moved to currentweather()
 //     fetch(localStorage.weatherHourly)
@@ -149,15 +142,12 @@ function getForecastDaily() {
 }
 
 function getRadar() {
-//	alert('Radar: ' + radar);
     document.querySelector('.radarFront').style.display = 'block';
     document.querySelector('.mainFront').style.display = 'none'; 	// Hide class: mainFront
     document.querySelector('.hourlyFront').style.display = 'none';
     document.querySelector('.dailyFront').style.display = 'none';
     radar = localStorage.weatherRadar
-//     document.querySelector('.radarbutton').style.display = 'none'; 	// Hide class: radarbutton
-    // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
-    var radarcode = '<img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar">';
+    var radarcode = '<img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar">'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
 //     console.log(radarcode);
     document.getElementById("radarweather").innerHTML = radarcode;
 }
@@ -170,8 +160,7 @@ function returnFront() {
 }
 
 function hideloadinggif() {
-	document.querySelector('.lds-ripple').style.display = 'none';
-	//alert('hiding');
+    document.querySelector('.lds-ripple').style.display = 'none'; // Hide loading gif
 }
 
 // For pull-to-refresh

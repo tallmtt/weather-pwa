@@ -4,6 +4,7 @@ const cName = "Weather",
 cFiles = [
   "index.html",
   "style.css",
+  "pulltorefresh.js",
   "main.js"
 ];
 

@@ -37,16 +37,19 @@
 	
   </head>
   <body onload="getWeather()">
+    <div class='top'>
     <h1 onClick="returnFront()">Weather</h1>
 	<p>Weather from weather.gov</p>
 	
-	<div>
-		<button type="button" class='buttons' onClick="getForecastHourly()">Hourly Forecast</button>
-		<button type="button" class='buttons' onClick="getRadar()">Radar</button>
-		<button type="button" class='buttons' onClick="getForecastDaily()">Daily Forecast</button> <hr>
-	</div>
+    <div>
+        <button type="button" class='buttons' onClick="getForecastHourly()">Hourly Forecast</button>
+        <button type="button" class='buttons' onClick="getRadar()">Radar</button>
+        <button type="button" class='buttons' onClick="getForecastDaily()">Daily Forecast</button> 
+        <hr>
+    </div>
 	
 	<div id='isnotsupported'></div>
+	</div> <!-- 	End top -->
 	
 	<!-- Loading animation -->
 	<div class="lds-ripple"><div></div><div></div></div>

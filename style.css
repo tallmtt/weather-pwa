@@ -1,6 +1,8 @@
 * { font-family: clean,verdana, sans-serif; }
 
 body {
+/*     padding: 0; */
+    margin: 0;
     background: #d5ecf5;  /* was 000 */
     color: #293a4c;          /* was fff */
     text-align: center;
@@ -15,6 +17,24 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #d5ecf5;
+}
+
+h1 {
+    margin: 0;
+    text-decoration: underline;
+/*     padding: 0; */
+}
+
+p {
+    margin: 0;
+/*     padding: 0; */
+}
+
 img {
     max-width:100%;
 /*     max-width: 56px; */
@@ -23,7 +43,6 @@ img {
     border-radius: 5%;  /* was 4px */
     height:auto;
     display: block;
-/* 	border-radius: 15%; */
     float: left;
     margin-right: 1em;
 }
@@ -54,7 +73,6 @@ ul {
     padding:0.5em;
     max-width: 300px;
     display: flex;
-/*     background-color: DodgerBlue; */
     justify-content: start;
     align-items: center;
     border: 1px solid #dde5ed;
@@ -73,7 +91,9 @@ ul {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-/*   font-size: 16px; */
+    font-weight: bold;
+    text-decoration: underline;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .buttons:active {
@@ -82,10 +102,10 @@ ul {
   transform: translateY(2px);
 }
 
-
-
-
-/* https://loading.io/css/ */
+/* ***************************** */
+/* Loading gif                   */
+/* From: https://loading.io/css/ */
+/* ***************************** */
 .lds-ripple {
   display: inline-block;
   position: relative;
@@ -94,7 +114,7 @@ ul {
 }
 .lds-ripple div {
   position: absolute;
-  border: 4px solid #fff;
+  border: 4px solid #466585;  /* Was: #fff Alt: #293a4c Is: Same as buttons */
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
