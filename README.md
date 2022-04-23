@@ -7,7 +7,7 @@ For development/testing:
 
 # Version 1.0 done!
 
-** MVP 4/22/22!!! **
+**MVP 4/22/22!!!**
 
 This is a progressive web app that uses weather forecasting data from weather.gov.
 
