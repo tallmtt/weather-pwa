@@ -6,6 +6,8 @@ Update of my previous Android Weather app to pwa for flexibility, space saving, 
 For development/testing: 
 - $ python3 -m http.server
 
+** MVP 4/22/22!!! **
+
 ## Overall Plan
 
 - On page load (with loading gif):
@@ -30,12 +32,14 @@ For development/testing:
 
 # Todo
 
-- [-] Write getweather code
+- [ ] Fix css scroll - keep title at top of page when scrolling down
+- [ ] padding around <p> under title - make <h2>???
+- [X] Write getweather code
   - [X] Write geolocation code
   - [X] Write get links code - parse from lat,lng
-  - [ ] Write Hourly page: parse json code hourly
-    - [ ] Need to fix css to center better
-  - [ ] Write Daily page: parse json code daily
+  - [X] Write Hourly page: parse json code hourly
+    - [X] Need to fix css to center better
+  - [X] Write Daily page: parse json code daily
 - [X] Change icons
 - [X] Write Radar page
 - [X] Set loading icon

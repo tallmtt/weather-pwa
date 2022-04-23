@@ -39,14 +39,14 @@
   <body onload="getWeather()">
     <h1 onClick="returnFront()">Weather</h1>
 	<p>Weather from weather.gov</p>
-
+	
 	<div>
-		<button type="button" class='hourlybutton' onClick="getForecastHourly()">Hourly Forecast</button>
-		<button type="button" class='radarbutton' onClick="getRadar()">Radar</button>
-		<button type="button" class='dailybutton' onClick="getForecastDaily()">Daily Forecast</button> <hr>
+		<button type="button" class='buttons' onClick="getForecastHourly()">Hourly Forecast</button>
+		<button type="button" class='buttons' onClick="getRadar()">Radar</button>
+		<button type="button" class='buttons' onClick="getForecastDaily()">Daily Forecast</button> <hr>
 	</div>
 	
-	<div id='supported'></div>
+	<div id='isnotsupported'></div>
 	
 	<!-- Loading animation -->
 	<div class="lds-ripple"><div></div><div></div></div>
