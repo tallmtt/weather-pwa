@@ -67,6 +67,14 @@ img {
     align-items: center;
 }
 
+#today {
+    margin-bottom: 1em;
+}
+
+#location {
+    margin-bottom: 0.2em;
+}
+
 ul {
     margin: auto;
     text-align: left;

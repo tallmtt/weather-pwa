@@ -46,7 +46,12 @@ function currentweather() {
     fetch(localStorage.weatherHourly)
     .then(response => response.json())
     .then(data => {
-//         console.log(data);
+        console.log(data);
+		today = new Date(data['properties']['periods']['0']['startTime']);
+		mo = today.getMonth();
+		dy = today.getDate();
+		day = today.getDay();
+		yr = today.getFullYear();
         icon = data['properties']['periods']['0']['icon'];
         sforecast = data['properties']['periods']['0']['shortForecast'];
         temp = data['properties']['periods']['0']['temperature'];
@@ -55,6 +60,14 @@ function currentweather() {
         cweather = '<img src="' + icon + '">' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
 
         document.getElementById("currentweather").innerHTML = cweather;
+		
+		const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+		const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        
+		mo = months[mo];
+		day = days[day];
+		
+		document.getElementById("today").innerHTML = '<b>' + day + ':  ' + dy + '  ' + mo  + '  ' + yr + '</b>';
 
 //             Get all data for hourly weather on first api pull
             var hourlist = '';
@@ -121,7 +134,7 @@ function getForecastDaily() {
     fetch(localStorage.weatherDaily)
     .then(response => response.json())
     .then(data => {
-//         console.log(data);
+         console.log(data);
         
        var weatherperiod = data.properties.periods['0'].shortForecast;
 //        console.log(weatherperiod);
