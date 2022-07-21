@@ -76,12 +76,15 @@ function currentweather() {
                 icon = weatherperiod.icon;
                 time = new Date(weatherperiod.startTime);   // Parse datetime string to get hours
                 hr = time.getHours(time);                   // Parse datetime string to get hours
+				day = time.getDay(time);
+				const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+				day = days[day];
 //                 min = time.getMinutes(time);  // NOT needed - just add ':00'
                 sforecast = weatherperiod.shortForecast;
                 temp = weatherperiod.temperature;
                 windsp = weatherperiod.windSpeed;
                 winddir = weatherperiod.windDirection;
-                hourlist += '<ul><img src="' + icon + '"><span><b>' + hr + ':00</b><br>' + temp + ' F - ' + sforecast + '<br>' + windsp + ' ' + winddir + '<br></span></ul>';
+                hourlist += '<ul><img src="' + icon + '"><span><b>' + day + ': ' + hr + ':00</b><br>' + temp + ' F - ' + sforecast + '<br>' + windsp + ' ' + winddir + '<br></span></ul>';
             }
 //             console.log(hourlist);
             document.getElementById("hourlyweather").innerHTML = hourlist;
