@@ -110,6 +110,22 @@ ul {
   transform: translateY(2px);
 }
 
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #d5ecf5;
+   color: white;
+   text-align: center;
+/*   margin: 1em;*/
+}
+
+.footer a {
+    text-align: right;
+    text-decoration: none;
+}
+
 /* ***************************** */
 /* Loading gif                   */
 /* From: https://loading.io/css/ */
