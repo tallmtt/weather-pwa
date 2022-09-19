@@ -32,7 +32,9 @@ function weatherdata(position) {
     //LocalStorage because I don't understand how variable scope works in javascript
     localStorage.weatherHourly = hourly;
     localStorage.weatherDaily = daily;
-    localStorage.weatherRadar = radar;
+    //localStorage.weatherRadar = radar;
+	localStorage.weatherRadar = '<img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar">'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
+
 });
     currentweather();
 
@@ -162,10 +164,11 @@ function getRadar() {
     document.querySelector('.mainFront').style.display = 'none'; 	// Hide class: mainFront
     document.querySelector('.hourlyFront').style.display = 'none';
     document.querySelector('.dailyFront').style.display = 'none';
-    radar = localStorage.weatherRadar
-    var radarcode = '<img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar">'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
-//     console.log(radarcode);
-    document.getElementById("radarweather").innerHTML = radarcode;
+//    radar = localStorage.weatherRadar
+//    var radarcode = '<img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar">'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
+//    console.log(radarcode);
+//    document.getElementById("radarweather").innerHTML = radarcode;
+    document.getElementById("radarweather").innerHTML = localStorage.weatherRadar;
 }
 
 function returnFront() {
