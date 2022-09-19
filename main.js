@@ -33,7 +33,7 @@ function weatherdata(position) {
     localStorage.weatherHourly = hourly;
     localStorage.weatherDaily = daily;
     //localStorage.weatherRadar = radar;
-	localStorage.weatherRadar = '<img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar">'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
+	localStorage.weatherRadar = '<iframe src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar"></iframe>'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
 
 });
     currentweather();
