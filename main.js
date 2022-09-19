@@ -167,8 +167,13 @@ function getRadar() {
     radar = localStorage.weatherRadar
     var radarcode = '<a href="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif"><img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar"></a>'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
     console.log(radarcode);
-    document.getElementById("radarweather").innerHTML = radarcode;
-//    document.getElementById("radarweather").innerHTML = localStorage.weatherRadar;
+	radarlink = 'https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif'
+    //document.getElementById("radarweather").innerHTML = radarcode;
+
+	// TEMPORARY FIX to these problemts:
+	// Failed to load ‘https://radar.weather.gov/ridge/lite/KMLB_loop.gif’. A ServiceWorker passed a promise to FetchEvent.respondWith() that resolved with non-Response value ‘undefined’.
+	// I think the service worker is not allowing an image from another domain to load on PWA for a security issue (cross site ...)
+	window.location = radarlink  // This just opens the radar on another window
 }
 
 function returnFront() {
