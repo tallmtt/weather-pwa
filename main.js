@@ -165,9 +165,11 @@ function getRadar() {
     document.querySelector('.hourlyFront').style.display = 'none';
     document.querySelector('.dailyFront').style.display = 'none';
     radar = localStorage.weatherRadar
-    var radarcode = '<a href="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif"><img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar"></a>'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
+//    var radarcode = '<a href="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif"><img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar"></a>'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
+    var radarcode = '<a href="https://radar.weather.gov/ridge/standard/' + radar + '_loop.gif"><img src="https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif" class="imgradar"></a>'; // Present radar image from: https://radar.weather.gov/ridge/lite/KMLB_loop.gif
     console.log(radarcode);
-	radarlink = 'https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif'
+//	radarlink = 'https://radar.weather.gov/ridge/lite/' + radar + '_loop.gif'
+	radarlink = 'https://radar.weather.gov/ridge/standard/' + radar + '_loop.gif'
     //document.getElementById("radarweather").innerHTML = radarcode;
 
 	// TEMPORARY FIX to these problemts:

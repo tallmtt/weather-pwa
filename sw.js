@@ -1,5 +1,6 @@
 // (A) FILES TO CACHE
 const cName = "Weather",
+const version = '1.0',
 
 cFiles = [
   "index.html",
