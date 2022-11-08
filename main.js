@@ -2,9 +2,17 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js");
 }
 
+function checkPermissions() {
+	navigator.permissions.query({name:'geolocation'}).then(function(result) {
+	// Will return ['granted', 'prompt', 'denied']
+	console.log('Permissions query: ' + result.state);
+	});
+}
+
 var supported = document.getElementById("isnotsupported");
 
 function getWeather() {
+	checkPermissions();	// Check to make sure location permissions are enabled
     document.querySelector('.hourlyFront').style.display = 'none'
     document.querySelector('.radarFront').style.display = 'none'
     document.querySelector('.dailyFront').style.display = 'none'
@@ -160,8 +168,9 @@ function getForecastDaily() {
 }
 
 function getRadar() {
-    document.querySelector('.radarFront').style.display = 'block';
-    document.querySelector('.mainFront').style.display = 'none'; 	// Hide class: mainFront
+//    document.querySelector('.radarFront').style.display = 'block';	// Hide while just redirecting to another page
+//    document.querySelector('.mainFront').style.display = 'none'; 	// Hide class: mainFront
+    document.querySelector('.mainFront').style.display = 'block'; 	// Show only while redirecting to another page for radar image
     document.querySelector('.hourlyFront').style.display = 'none';
     document.querySelector('.dailyFront').style.display = 'none';
     radar = localStorage.weatherRadar
