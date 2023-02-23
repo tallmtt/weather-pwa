@@ -48,6 +48,11 @@ function weatherdata(position) {
 
 }
 
+function imageerror () {
+	var imageerror = "this.onerror=null; this.style.display = 'none';"
+	return imageerror;
+}
+
 function currentweather() {
     document.querySelector('.hourlyFront').style.display = 'none';    // Hide hourly
     document.querySelector('.radarFront').style.display = 'none';    // Hide radar
@@ -67,7 +72,9 @@ function currentweather() {
         temp = data['properties']['periods']['0']['temperature'];
         windsp = data['properties']['periods']['0']['windSpeed'];
         winddir = data['properties']['periods']['0']['windDirection'];
-        cweather = '<img src="' + icon + '">' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
+		//noimageerror = "this.onerror=null; this.style.display = 'none'"
+		noimageerror = "; this.style.display = 'none'"
+        cweather = '<img onerror="this.onerror=null' + noimageerror + '" src="' + icon + '">' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir;
 
         document.getElementById("currentweather").innerHTML = cweather;
 		
@@ -94,7 +101,8 @@ function currentweather() {
                 temp = weatherperiod.temperature;
                 windsp = weatherperiod.windSpeed;
                 winddir = weatherperiod.windDirection;
-                hourlist += '<ul><img src="' + icon + '"><span><b>' + day + ': ' + hr + ':00</b><br>' + temp + ' F - ' + sforecast + '<br>' + windsp + ' ' + winddir + '<br></span></ul>';
+				noimageerror = "; this.style.display = 'none'"
+				hourlist += '<ul><img onerror="this.onerror=null' + noimageerror + '" src="' + icon + '"><span><b>' + day + ': ' + hr + ':00</b><br>' + temp + ' F - ' + sforecast + '<br>' + windsp + ' ' + winddir + '<br></span></ul>';
             }
 //             console.log(hourlist);
             document.getElementById("hourlyweather").innerHTML = hourlist;
@@ -107,34 +115,7 @@ function getForecastHourly() {
     document.querySelector('.hourlyFront').style.display = 'block'; // Show Hourly  
     document.querySelector('.mainFront').style.display = 'none';    // Hide class: mainFront
     document.querySelector('.dailyFront').style.display = 'none';    // Hide daily
-    document.querySelector('.radarFront').style.display = 'none';    // Hide radar
-
-// // Moved to currentweather()
-//     fetch(localStorage.weatherHourly)
-// 	.then(response => response.json())
-// 	.then(data => {
-// 		console.log(data);
-//         
-// 		var weatherperiod = data.properties.periods['0'].shortForecast;
-// 		console.log(weatherperiod); //Maine, then Connecticut
-// 
-// // Section to parse data into each section
-//         var hourlist = '';
-//         for (var i=0, n=2; i<n; i++) {  // do n=72
-//             var weatherperiod = data.properties.periods[i];
-//             icon = weatherperiod.icon;
-//             time = weatherperiod.startTime;
-//             sforecast = weatherperiod.shortForecast;
-//             temp = weatherperiod.temperature;
-//             windsp = weatherperiod.windSpeed;
-//             winddir = weatherperiod.windDirection;
-//             hourlist += '<ul><img src="' + icon + '">' + time + '<br>' + sforecast + '<br>' +  temp + ' F' + '<br>' + windsp + ' ' + winddir + '</ul>';
-//         }
-//         console.log(hourlist);
-//         document.getElementById("hourlyweather").innerHTML = hourlist
-// 
-//     });
-    
+    document.querySelector('.radarFront').style.display = 'none';    // Hide radar   
 }
 
 function getForecastDaily() {
@@ -159,7 +140,9 @@ function getForecastDaily() {
             icon = weatherperiod.icon;
             name = weatherperiod.name;
             dforecast = weatherperiod.detailedForecast;
-            daylist += '<ul><img src="' + icon + '"><span><b>' + name + '</b><br>' + dforecast + '</span></ul>';
+			noimageerror = "; this.style.display = 'none'"
+			//daylist += '<ul><img src="' + icon + '"><span><b>' + name + '</b><br>' + dforecast + '</span></ul>';
+			daylist += '<ul><img onerror="this.onerror=null' + noimageerror + '" src="' + icon + '"><span><b>' + name + '</b><br>' + dforecast + '</span></ul>';
         }
 //         console.log(daylist);
         document.getElementById("dailyweather").innerHTML = daylist
